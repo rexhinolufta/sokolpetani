@@ -1,327 +1,556 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Petani Piastrellista - Piastrellista e Ristrutturazioni</title>
-    <!-- Favicon -->
-    <link rel="icon" href="https://placehold.co/32x32/eab308/ffffff?text=P" type="image/png">
-    <!-- Inclusione di Tailwind CSS -->
+    <title>Instagram Follower Activity Tracker</title>
+    <link rel="icon" href="https://placehold.co/32x32/111827/eab308?text=IG" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Inclusione e Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            color: #333;
-            background-color: #f8f8f8;
-        }
-        .section-title {
-            position: relative;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-            display: inline-block;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 60px;
-            height: 3px;
-            background-color: #eab308; /* Colore giallo di Tailwind */
-            border-radius: 9999px;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(180deg, #111827 0%, #1f2937 45%, #111827 100%);
+            min-height: 100vh;
         }
     </style>
 </head>
-<body class="antialiased">
-    <!-- Header -->
-    <header class="bg-white shadow-sm py-4">
-        <nav class="container mx-auto flex justify-between items-center px-4">
-            <a href="#" class="text-2xl font-bold text-gray-800">
-                <span class="text-yellow-500">Petani</span>Piastrellista
-            </a>
-            <ul class="hidden md:flex space-x-6 lg:space-x-8 xl:space-x-10 text-sm"> <!-- Adjusted spacing and font size for better aesthetics -->
-                <li><a href="#home" class="text-gray-600 hover:text-yellow-500 transition duration-300">Home</a></li>
-                <li><a href="#chi-siamo" class="text-gray-600 hover:text-yellow-500 transition duration-300">Chi Siamo</a></li>
-                <li><a href="#servizi" class="text-gray-600 hover:text-yellow-500 transition duration-300">Servizi</a></li>
-                <li><a href="#portfolio" class="text-gray-600 hover:text-yellow-500 transition duration-300">Portfolio</a></li>
-                <li><a href="#contatti" class="text-gray-600 hover:text-yellow-500 transition duration-300">Contatti</a></li>
-                <li><a href="#preventivo" class="text-gray-600 hover:text-yellow-500 transition duration-300">Preventivo</a></li>
-            </ul>
-            <button class="md:hidden text-gray-600 focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </nav>
+<body class="text-gray-100">
+    <header class="bg-slate-900/70 backdrop-blur border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+                <h1 class="text-3xl md:text-4xl font-bold tracking-tight">Instagram Activity Dashboard</h1>
+                <p class="text-slate-300 mt-2 max-w-2xl">
+                    Monitor how your Instagram follower count evolves over time, spot growth trends,
+                    and keep yourself accountable with clear metrics and goals.
+                </p>
+            </div>
+            <div class="bg-amber-400/10 border border-amber-500/40 text-amber-200 px-4 py-3 rounded-xl text-sm md:max-w-xs">
+                <p class="font-semibold uppercase text-xs tracking-wide">Privacy Note</p>
+                <p>No login required. All of your entries stay in this browser using local storage.</p>
+            </div>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="bg-gray-800 text-white py-20 md:py-32 text-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://placehold.co/1920x1080/4a5568/ffffff?text=Finiture+di+Qualita')"></div>
-        <div class="container mx-auto px-4 relative z-10">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
-                La Tua Casa, Il Nostro Capolavoro.
-            </h1>
-            <p class="text-lg md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
-                Piastrellista Professionista e Specialista in Ristrutturazioni Chiavi in Mano.
-            </p>
-            <!-- Rimosso: Richiedi un Preventivo Gratuito -->
-        </div>
-    </section>
-
-    <!-- Chi Siamo Section -->
-    <section id="chi-siamo" class="py-16 md:py-24 bg-gray-50">
-        <div class="container mx-auto px-4 text-center max-w-4xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 section-title mx-auto">Chi Siamo</h2>
-            <p class="text-gray-700 leading-relaxed text-lg mb-4">
-                Con anni di esperienza nel settore edile, offro servizi di alta qualità e precisione. La mia passione per el dettaglio e l'attenzione alle esigenze del cliente sono i pilastri del mio lavoro. Ogni progetto, grande o piccolo che sia, viene affrontato con professionalità e dedizione, garantendo risultati eccellenti e duraturi.
-            </p>
-            <p class="text-gray-700 leading-relaxed text-lg">
-                Sono specializzato nella posa di piastrelle di ogni tipo, dalla ceramica al gres porcellanato, fino ai materiali più pregiati. Offro anche soluzioni complete per ristrutturazioni chiavi in mano, lavori in cartongesso, controsoffitti e rifiniture interne, trasformando ogni ambiente in uno spazio funzionale e esteticamente gradevole.
-            </p>
-        </div>
-    </section>
-
-    <!-- Servizi Offerti Section -->
-    <section id="servizi" class="py-16 md:py-24">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12 text-center section-title mx-auto">I Nostri Servizi</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Servizio 1: Posa Piastrelle -->
-                <div class="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
-                    <div class="text-yellow-500 mb-4">
-                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Posa Piastrelle</h3>
-                    <p class="text-gray-600 text-center">Specializzati nella posa di pavimenti e rivestimenti in ceramica, gres porcellanato, marmo e pietre naturali. Precisione e finitura impeccabile.</p>
+    <main class="max-w-6xl mx-auto px-4 py-10 space-y-10">
+        <section class="bg-slate-900/80 border border-slate-800 rounded-3xl shadow-xl p-6 md:p-8 grid gap-8 md:grid-cols-2">
+            <div class="space-y-6">
+                <div>
+                    <h2 class="text-2xl font-semibold">Log follower activity</h2>
+                    <p class="text-slate-400">Update your tracker every time you gain or lose followers to maintain a precise history.</p>
                 </div>
-                <!-- Servizio 2: Ristrutturazioni Chiavi in Mano -->
-                <div class="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
-                    <div class="text-yellow-500 mb-4">
-                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m-1 4h1m8-16v2m0 8v2m0-8H13a2 2 0 00-2 2v4a2 2 0 002 2h5m0 0h3.586a1 1 0 00.707-.293l1.414-1.414a1 1 0 00.293-.707V10.414A1 1 0 0021.414 9l-1.414-1.414A1 1 0 0019 7.586V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16"></path>
-                        </svg>
+                <form id="entry-form" class="space-y-5">
+                    <div class="grid gap-4 sm:grid-cols-2">
+                        <label class="block">
+                            <span class="text-sm font-medium text-slate-300">Date</span>
+                            <input type="date" id="entry-date" required class="mt-1 w-full rounded-xl border border-slate-700 bg-slate-800/70 text-gray-100 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-400">
+                        </label>
+                        <label class="block">
+                            <span class="text-sm font-medium text-slate-300">Follower count</span>
+                            <input type="number" id="entry-count" min="0" step="1" required placeholder="e.g. 1520" class="mt-1 w-full rounded-xl border border-slate-700 bg-slate-800/70 text-gray-100 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-400">
+                        </label>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Ristrutturazioni Chiavi in Mano</h3>
-                    <p class="text-gray-600 text-center">Gestione completa del progetto, dalla demolizione alla consegna finale. Coordinamento di tutte le fasi per un risultato senza pensieri.</p>
+                    <label class="block">
+                        <span class="text-sm font-medium text-slate-300">Notes <span class="text-xs text-slate-500">(optional)</span></span>
+                        <textarea id="entry-notes" rows="2" placeholder="What happened today?" class="mt-1 w-full rounded-xl border border-slate-700 bg-slate-800/70 text-gray-100 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-400"></textarea>
+                    </label>
+                    <div class="flex flex-wrap items-center gap-3">
+                        <button type="submit" class="inline-flex items-center gap-2 bg-amber-400 text-slate-900 font-semibold px-5 py-3 rounded-xl shadow-lg shadow-amber-500/30 transition hover:bg-amber-300 focus:outline-none focus:ring-4 focus:ring-amber-400/60">
+                            <span class="text-lg">➕</span>
+                            Add entry
+                        </button>
+                        <button type="button" id="load-sample" class="text-sm text-amber-300 hover:text-amber-200 underline underline-offset-4">
+                            Load sample data
+                        </button>
+                        <button type="button" id="clear-data" class="text-sm text-slate-400 hover:text-red-300">
+                            Clear tracker
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="bg-slate-950/60 border border-slate-800 rounded-3xl p-6 space-y-6">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-xl font-semibold">Goal tracking</h3>
+                    <span class="text-xs uppercase tracking-wide text-slate-500">Optional</span>
                 </div>
-                <!-- Servizio 3: Lavori in Cartongesso -->
-                <div class="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
-                    <div class="text-yellow-500 mb-4">
-                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Lavori in Cartongesso</h3>
-                    <p class="text-gray-600 text-center">Creazione di pareti divisorie, librerie, nicchie e strutture personalizzate per ottimizzare gli spazi con design e funzionalità.</p>
-                </div>
-                <!-- Servizio 4: Controsoffitti -->
-                <div class="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
-                    <div class="text-yellow-500 mb-4">
-                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Controsoffitti</h3>
-                    <p class="text-gray-600 text-center">Installazione di controsoffitti in cartongesso per isolamento termico/acustico, integrazione illuminazione e miglioramento estetico.</p>
-                </div>
-                <!-- Servizio 5: Rifiniture Interne -->
-                <div class="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
-                    <div class="text-yellow-500 mb-4">
-                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2V5a2 2 0 00-2-2h-2.5a1.5 1.5 0 01-1.5-1.5v-1A1.5 1.5 0 0012.5 2H10a1.5 1.5 0 00-1.5 1.5v1A1.5 1.5 0 017 5v12a4 4 0 004 4z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Rifiniture Interne</h3>
-                    <p class="text-gray-600 text-center">Dettagli che fanno la differenza: stuccature, rasature, imbiancatura, posa di battiscopa e altre finiture per interni eleganti.</p>
-                </div>
-                <!-- Servizio 6: Imbiancatura -->
-                <div class="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
-                    <div class="text-yellow-500 mb-4">
-                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 3H5a2 2 0 00-2 2v12a2 2 0 002 2h2m4 0h4m-4 0h-4m0 0V5a2 2 0 012-2h2a2 2 0 012 2v12m-4 0a2 2 0 002 2h2a2 2 0 002-2M7 13h4a2 2 0 012 2v4a2 2 0 01-2 2H7a2 2 0 01-2-2v-4a2 2 0 012-2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Imbiancatura</h3>
-                    <p class="text-gray-600 text-center">Servizi professionali di imbiancatura per interni ed esterni, con preparazione delle surfaces e scelta dei colori.</p>
+                <label class="block space-y-3">
+                    <span class="text-sm font-medium text-slate-300">Follower goal</span>
+                    <input type="number" id="goal-input" min="0" placeholder="Set your next milestone" class="w-full rounded-xl border border-slate-700 bg-slate-800/70 text-gray-100 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-400">
+                </label>
+                <button id="save-goal" class="w-full bg-slate-100/90 text-slate-900 font-semibold px-4 py-3 rounded-xl hover:bg-white transition focus:outline-none focus:ring-4 focus:ring-amber-400/60">Save goal</button>
+                <div id="goal-progress" class="text-sm text-slate-300 bg-slate-900/70 border border-slate-800 rounded-2xl p-4 leading-relaxed">
+                    No goal set yet.
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Portfolio Section (Immagini Lavori) -->
-    <section id="portfolio" class="py-16 md:py-24 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12 text-center section-title mx-auto">I Nostri Lavori</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="rounded-lg overflow-hidden shadow-md">
-                    <img src="https://i.postimg.cc/MGhj8kXC/banjo.png" alt="Ristrutturazione bagno completa" class="w-full h-auto object-cover transform hover:scale-105 transition duration-300">
+        <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <article class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6">
+                <h3 class="text-sm uppercase tracking-wide text-slate-400">Latest count</h3>
+                <p id="latest-count" class="text-3xl font-semibold mt-3">—</p>
+                <p id="latest-change" class="text-sm text-slate-400 mt-2">Add your first entry to begin.</p>
+            </article>
+            <article class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6">
+                <h3 class="text-sm uppercase tracking-wide text-slate-400">Net change</h3>
+                <p id="net-change" class="text-3xl font-semibold mt-3">—</p>
+                <p id="net-change-label" class="text-sm text-slate-400 mt-2">Track the difference between first and latest entry.</p>
+            </article>
+            <article class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6">
+                <h3 class="text-sm uppercase tracking-wide text-slate-400">Average daily growth</h3>
+                <p id="daily-growth" class="text-3xl font-semibold mt-3">—</p>
+                <p id="daily-growth-label" class="text-sm text-slate-400 mt-2">Growth per day based on your timeline.</p>
+            </article>
+            <article class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6">
+                <h3 class="text-sm uppercase tracking-wide text-slate-400">Tracking streak</h3>
+                <p id="tracking-streak" class="text-3xl font-semibold mt-3">—</p>
+                <p id="tracking-streak-label" class="text-sm text-slate-400 mt-2">Number of consecutive days with updates.</p>
+            </article>
+        </section>
+
+        <section class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <h2 class="text-2xl font-semibold">Follower history</h2>
+                    <p class="text-slate-400">Visualize how your follower count evolves. Hover for exact values.</p>
                 </div>
-                <div class="rounded-lg overflow-hidden shadow-md">
-                    <img src="https://i.postimg.cc/XJdBj2Cp/banjo-pllaka.png" alt="Posa piastrelle bagno con dettagli" class="w-full h-auto object-cover transform hover:scale-105 transition duration-300">
+                <span id="last-updated" class="text-sm text-slate-500">No data yet.</span>
+            </div>
+            <div class="relative">
+                <canvas id="followers-chart" class="w-full"></canvas>
+                <p id="chart-placeholder" class="absolute inset-0 flex items-center justify-center text-slate-500 text-sm">Add entries to see your progress over time.</p>
+            </div>
+        </section>
+
+        <section class="bg-slate-900/80 border border-slate-800 rounded-3xl overflow-hidden">
+            <div class="px-6 py-5 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div>
+                    <h2 class="text-2xl font-semibold">Activity log</h2>
+                    <p class="text-slate-400">Every entry you capture is listed here for reference.</p>
                 </div>
-                <div class="rounded-lg overflow-hidden shadow-md">
-                    <img src="https://i.postimg.cc/brRGbsLP/parket.png" alt="Installazione parquet in soggiorno" class="w-full h-auto object-cover transform hover:scale-105 transition duration-300">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-md">
-                    <img src="https://i.postimg.cc/zDwH4cNQ/pllaka.png" alt="Posa piastrelle grande formato" class="w-full h-auto object-cover transform hover:scale-105 transition duration-300">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-md">
-                    <img src="https://i.postimg.cc/qqrhz8sQ/pllaka-banjo.png" alt="Dettagli piastrelle bagno" class="w-full h-auto object-cover transform hover:scale-105 transition duration-300">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-md">
-                    <img src="https://i.postimg.cc/vHQxytHZ/shkalle.png" alt="Ristrutturazione e posa piastrelle scale" class="w-full h-auto object-cover transform hover:scale-105 transition duration-300">
+                <div class="relative">
+                    <input type="search" id="search-input" placeholder="Search notes or dates" class="w-full sm:w-64 rounded-2xl border border-slate-700 bg-slate-800/70 text-gray-100 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-400">
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Contatti Section -->
-    <section id="contatti" class="py-16 md:py-24">
-        <div class="container mx-auto px-4 text-center max-w-2xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12 text-center section-title mx-auto">Contatti</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                <div class="bg-white rounded-lg shadow-md p-6 text-center">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Telefono</h3>
-                    <p class="text-gray-700 text-lg">
-                        <a href="tel:+393480459903" class="text-yellow-500 hover:underline">+39 348 045 9903</a>
-                    </p>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6 text-center">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Email</h3>
-                    <p class="text-gray-700 text-lg">
-                        <a href="mailto:sokolpetani@gmail.com" class="text-yellow-500 hover:underline">sokolpetani@gmail.com</a>
-                    </p>
-                </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-slate-800 text-sm">
+                    <thead class="bg-slate-950/60 text-slate-400 uppercase tracking-wide">
+                        <tr>
+                            <th class="px-6 py-3 text-left">Date</th>
+                            <th class="px-6 py-3 text-left">Followers</th>
+                            <th class="px-6 py-3 text-left">Change vs. previous</th>
+                            <th class="px-6 py-3 text-left">Notes</th>
+                            <th class="px-6 py-3"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="entries-body" class="divide-y divide-slate-900/60"></tbody>
+                </table>
             </div>
-            <p class="text-gray-700 text-lg">
-                Non esitare a contattarmi per qualsiasi domanda o per discutere del tuo prossimo progetto.
-            </p>
-        </div>
-    </section>
+            <div id="empty-state" class="px-6 py-10 text-center text-slate-500 text-sm">No entries yet. Start logging your follower count.</div>
+        </section>
+    </main>
 
-    <!-- Modulo Preventivo Section -->
-    <section id="preventivo" class="py-16 md:py-24 bg-gray-100">
-        <div class="container mx-auto px-4 max-w-2xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12 text-center section-title mx-auto">Richiedi un Preventivo</h2>
-            <form class="bg-white rounded-lg shadow-md p-8">
-                <div class="mb-6">
-                    <label for="nome" class="block text-gray-700 text-sm font-bold mb-2">Nome Completo:</label>
-                    <input type="text" id="nome" name="nome" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent" placeholder="Il tuo nome" required>
-                </div>
-                <div class="mb-6">
-                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
-                    <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent" placeholder="La tua email" required>
-                </div>
-                <div class="mb-6">
-                    <label for="telefono" class="block text-gray-700 text-sm font-bold mb-2">Telefono (opzionale):</label>
-                    <input type="tel" id="telefono" name="telefono" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent" placeholder="Il tuo numero di telefono">
-                </div>
-                <div class="mb-6">
-                    <label for="messaggio" class="block text-gray-700 text-sm font-bold mb-2">Messaggio e Dettagli del Progetto:</label>
-                    <textarea id="messaggio" name="messaggio" rows="6" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent" placeholder="Descrivi il progetto che hai in mente..." required></textarea>
-                </div>
-                <div class="flex items-center justify-center">
-                    <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:shadow-outline">
-                        Invia Richiesta
-                    </button>
-                </div>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2025 Petani Piastrellista. Tutti i diritti riservati.</p>
-            <div class="flex justify-center space-x-6 mt-4">
-                <!-- Facebook Icon and Link -->
-                <a href="https://www.facebook.com/petani.sokol" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-yellow-500 transition duration-300">
-                    <i class="fab fa-facebook-f fa-lg"></i> <!-- Facebook Icon -->
-                </a>
-                <!-- Instagram Icon and Link -->
-                <a href="https://www.instagram.com/petanipiastrellista?utm_source=ig_web_button_share_sheet&igsh=bjEwcGYybXJnamxt" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-yellow-500 transition duration-300">
-                    <i class="fab fa-instagram fa-lg"></i> <!-- Instagram Icon -->
-                </a>
-            </div>
-        </div>
+    <footer class="py-10 text-center text-xs text-slate-600">
+        Crafted for creators who want to understand their audience growth at a glance.
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Updated: Change the brand name in the header
-            const headerBrand = document.querySelector('header .text-2xl .text-yellow-500');
-            if (headerBrand) {
-                headerBrand.textContent = 'Petani';
-                const nextSibling = headerBrand.nextSibling;
-                if (nextSibling && nextSibling.nodeType === 3) { // Check if it's a text node
-                    nextSibling.textContent = 'Piastrellista';
+        const STORAGE_KEY = 'ig-tracker-entries-v1';
+        const GOAL_KEY = 'ig-tracker-goal-v1';
+
+        const entryForm = document.getElementById('entry-form');
+        const entryDate = document.getElementById('entry-date');
+        const entryCount = document.getElementById('entry-count');
+        const entryNotes = document.getElementById('entry-notes');
+        const entriesBody = document.getElementById('entries-body');
+        const emptyState = document.getElementById('empty-state');
+        const latestCountEl = document.getElementById('latest-count');
+        const latestChangeEl = document.getElementById('latest-change');
+        const netChangeEl = document.getElementById('net-change');
+        const netChangeLabel = document.getElementById('net-change-label');
+        const dailyGrowthEl = document.getElementById('daily-growth');
+        const dailyGrowthLabel = document.getElementById('daily-growth-label');
+        const streakEl = document.getElementById('tracking-streak');
+        const streakLabel = document.getElementById('tracking-streak-label');
+        const lastUpdatedEl = document.getElementById('last-updated');
+        const chartPlaceholder = document.getElementById('chart-placeholder');
+        const goalInput = document.getElementById('goal-input');
+        const saveGoalBtn = document.getElementById('save-goal');
+        const goalProgress = document.getElementById('goal-progress');
+        const loadSampleBtn = document.getElementById('load-sample');
+        const clearDataBtn = document.getElementById('clear-data');
+        const searchInput = document.getElementById('search-input');
+
+        let entries = loadEntries();
+        let followerChart = null;
+
+        function loadEntries() {
+            try {
+                const stored = localStorage.getItem(STORAGE_KEY);
+                if (!stored) return [];
+                const parsed = JSON.parse(stored);
+                if (!Array.isArray(parsed)) return [];
+                return parsed.filter(item => item && item.date && Number.isFinite(Number(item.count)));
+            } catch (error) {
+                console.error('Failed to parse entries from localStorage', error);
+                return [];
+            }
+        }
+
+        function saveEntries() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+        }
+
+        function loadGoal() {
+            const storedGoal = localStorage.getItem(GOAL_KEY);
+            if (storedGoal) {
+                const value = Number(storedGoal);
+                if (!Number.isNaN(value)) {
+                    goalInput.value = value;
                 }
             }
+            updateGoalProgress();
+        }
 
-            // --- Logic for Project Ideas AI (removed feature) ---
-            const generateIdeasBtn = document.getElementById('generate-ideas-btn');
-            const projectIdeaInput = document.getElementById('project-idea-input');
-            const ideasOutput = document.getElementById('ideas-output');
-            const loadingIndicator = document.getElementById('loading-indicator');
+        function saveGoal() {
+            const goalValue = Number(goalInput.value);
+            if (Number.isNaN(goalValue) || goalValue <= 0) {
+                goalProgress.textContent = 'Enter a positive number to set your goal.';
+                goalProgress.className = 'text-sm text-red-300 bg-red-900/30 border border-red-700/60 rounded-2xl p-4 leading-relaxed';
+                return;
+            }
+            localStorage.setItem(GOAL_KEY, goalValue.toString());
+            goalProgress.className = 'text-sm text-slate-300 bg-slate-900/70 border border-slate-800 rounded-2xl p-4 leading-relaxed';
+            updateGoalProgress();
+        }
 
-            // Check if elements exist before adding event listener (as the section might be removed)
-            if (generateIdeasBtn && projectIdeaInput && ideasOutput && loadingIndicator) {
-                generateIdeasBtn.addEventListener('click', async () => {
-                    const prompt = projectIdeaInput.value.trim();
-                    if (!prompt) {
-                        ideasOutput.innerHTML = '<p class="text-red-500">Per favore, scrivi un\'idea per il progetto.</p>';
-                        return;
-                    }
+        function updateGoalProgress() {
+            const goalValue = Number(goalInput.value);
+            if (!entries.length) {
+                goalProgress.textContent = 'Log your first entry to start tracking progress toward a goal.';
+                goalProgress.className = 'text-sm text-slate-300 bg-slate-900/70 border border-slate-800 rounded-2xl p-4 leading-relaxed';
+                return;
+            }
+            if (Number.isNaN(goalValue) || goalValue <= 0) {
+                goalProgress.textContent = 'No goal set yet. Add a target follower count to see progress.';
+                goalProgress.className = 'text-sm text-slate-300 bg-slate-900/70 border border-slate-800 rounded-2xl p-4 leading-relaxed';
+                return;
+            }
+            const latest = entries[entries.length - 1];
+            const percentage = Math.min(100, Math.round((latest.count / goalValue) * 100));
+            const remaining = Math.max(goalValue - latest.count, 0);
+            goalProgress.innerHTML = `
+                <strong class="text-amber-300 text-base">${percentage}%</strong> of your goal achieved.<br>
+                ${remaining === 0 ? 'Goal reached! Keep the momentum going.' : `${remaining.toLocaleString()} followers left to hit ${goalValue.toLocaleString()}.`}
+            `;
+            goalProgress.className = 'text-sm text-slate-300 bg-slate-900/70 border border-slate-800 rounded-2xl p-4 leading-relaxed';
+        }
 
-                    ideasOutput.innerHTML = ''; // Clear previous results
-                    loadingIndicator.classList.remove('hidden'); // Show loading indicator
-                    ideasOutput.classList.add('flex', 'items-center', 'justify-center'); // Center text during loading
+        function setDefaultDate() {
+            if (!entryDate.value) {
+                entryDate.valueAsDate = new Date();
+            }
+        }
 
-                    try {
-                        let chatHistory = [];
-                        const llmPrompt = `Ju jeni një ekspert i rinovimeve dhe dizajnit të brendshëm, i specializuar në pllaka, kartongesso, tavane të varura dhe rifinitura. Gjeneroni 3-5 ide krijuese dhe praktike për një projekt bazuar në përshkrimin e mëposhtëm të klientit, duke u përqëndruar në shërbimet e ofruara: "${prompt}". Çdo ide duhet të jetë e shkurtër dhe koncize, jo më shumë se 2-3 fjali. Përgjigju në italisht.`;
-                        chatHistory.push({ role: "user", parts: [{ text: llmPrompt }] });
+        function upsertEntry({ date, count, notes }) {
+            const normalizedDate = date;
+            const numericCount = Number(count);
+            if (!normalizedDate || Number.isNaN(numericCount) || numericCount < 0) {
+                return;
+            }
+            const existingIndex = entries.findIndex(entry => entry.date === normalizedDate);
+            const entry = {
+                date: normalizedDate,
+                count: numericCount,
+                notes: notes?.trim() || ''
+            };
+            if (existingIndex >= 0) {
+                entries[existingIndex] = entry;
+            } else {
+                entries.push(entry);
+            }
+            entries.sort((a, b) => new Date(a.date) - new Date(b.date));
+            saveEntries();
+            refreshUI();
+        }
 
-                        const payload = { contents: chatHistory };
-                        const apiKey = ""; // Canvas will provide this at runtime
-                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+        function deleteEntry(date) {
+            entries = entries.filter(entry => entry.date !== date);
+            saveEntries();
+            refreshUI();
+        }
 
-                        const response = await fetch(apiUrl, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
-                        });
+        function getChange(current, previous) {
+            if (previous == null) return '—';
+            const diff = current - previous;
+            const sign = diff > 0 ? '+' : '';
+            return `${sign}${diff.toLocaleString()}`;
+        }
 
-                        if (!response.ok) {
-                            throw new Error(`Gabim HTTP! status: ${response.status}`);
+        function computeStreak() {
+            if (entries.length === 0) return 0;
+            let streak = 1;
+            for (let i = entries.length - 1; i > 0; i -= 1) {
+                const current = new Date(entries[i].date);
+                const prev = new Date(entries[i - 1].date);
+                const diffInDays = Math.round((current - prev) / (1000 * 60 * 60 * 24));
+                if (diffInDays === 1) {
+                    streak += 1;
+                } else if (diffInDays === 0) {
+                    continue;
+                } else {
+                    break;
+                }
+            }
+            return streak;
+        }
+
+        function updateSummaryCards() {
+            if (!entries.length) {
+                latestCountEl.textContent = '—';
+                latestChangeEl.textContent = 'Add your first entry to begin.';
+                netChangeEl.textContent = '—';
+                netChangeLabel.textContent = 'Track the difference between first and latest entry.';
+                dailyGrowthEl.textContent = '—';
+                dailyGrowthLabel.textContent = 'Growth per day based on your timeline.';
+                streakEl.textContent = '—';
+                streakLabel.textContent = 'Number of consecutive days with updates.';
+                lastUpdatedEl.textContent = 'No data yet.';
+                return;
+            }
+            const first = entries[0];
+            const latest = entries[entries.length - 1];
+            const change = latest.count - first.count;
+            const changeSign = change > 0 ? '+' : '';
+            latestCountEl.textContent = latest.count.toLocaleString();
+
+            if (entries.length > 1) {
+                const previous = entries[entries.length - 2].count;
+                const diff = latest.count - previous;
+                const trendColor = diff > 0 ? 'text-emerald-300' : diff < 0 ? 'text-red-300' : 'text-slate-400';
+                latestChangeEl.innerHTML = `<span class="${trendColor}">${diff > 0 ? '▲' : diff < 0 ? '▼' : '■'} ${getChange(latest.count, previous)} today</span>`;
+            } else {
+                latestChangeEl.textContent = 'Only one entry so far.';
+            }
+
+            netChangeEl.textContent = `${changeSign}${change.toLocaleString()}`;
+            netChangeLabel.textContent = change === 0 ? 'You are at the same level as your first log.' : change > 0 ? 'Nice! You gained followers over this period.' : 'You lost followers over this period.';
+
+            const daysSpan = Math.max(1, Math.round((new Date(latest.date) - new Date(first.date)) / (1000 * 60 * 60 * 24)));
+            const dailyGrowth = change / daysSpan;
+            dailyGrowthEl.textContent = `${dailyGrowth >= 0 ? '+' : ''}${dailyGrowth.toFixed(1)}`;
+            dailyGrowthLabel.textContent = daysSpan === 0 ? 'Entries are from the same day.' : `Average change per day over ${daysSpan} day${daysSpan === 1 ? '' : 's'}.`;
+
+            const streak = computeStreak();
+            streakEl.textContent = `${streak}`;
+            streakLabel.textContent = streak > 1 ? `You have logged data for ${streak} consecutive days.` : 'Log data on consecutive days to build a streak.';
+
+            const lastEntryDate = new Date(latest.date + 'T00:00');
+            lastUpdatedEl.textContent = `Last updated ${lastEntryDate.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}`;
+        }
+
+        function updateTable(filter = '') {
+            const normalizedFilter = filter.trim().toLowerCase();
+            entriesBody.innerHTML = '';
+            if (!entries.length) {
+                emptyState.classList.remove('hidden');
+                return;
+            }
+            emptyState.classList.add('hidden');
+            entries.forEach((entry, index) => {
+                const previous = index > 0 ? entries[index - 1].count : null;
+                const change = getChange(entry.count, previous);
+                const matchesFilter = !normalizedFilter || entry.notes.toLowerCase().includes(normalizedFilter) || entry.date.includes(normalizedFilter);
+                if (!matchesFilter) return;
+
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-slate-800/40 transition-colors';
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">${new Date(entry.date + 'T00:00').toLocaleDateString()}</td>
+                    <td class="px-6 py-4">${entry.count.toLocaleString()}</td>
+                    <td class="px-6 py-4">${change}</td>
+                    <td class="px-6 py-4 text-slate-400">${entry.notes || '<span class="text-slate-600">—</span>'}</td>
+                    <td class="px-6 py-4 text-right">
+                        <button class="text-xs text-red-300 hover:text-red-200" data-delete="${entry.date}">Delete</button>
+                    </td>
+                `;
+                entriesBody.appendChild(row);
+            });
+
+            if (!entriesBody.children.length) {
+                emptyState.textContent = 'No entries match your search. Try a different keyword or clear the search.';
+                emptyState.classList.remove('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+                emptyState.textContent = 'No entries yet. Start logging your follower count.';
+            }
+        }
+
+        function updateChart() {
+            const ctx = document.getElementById('followers-chart');
+            if (!entries.length) {
+                chartPlaceholder.classList.remove('hidden');
+                if (followerChart) {
+                    followerChart.destroy();
+                    followerChart = null;
+                }
+                return;
+            }
+            chartPlaceholder.classList.add('hidden');
+            const labels = entries.map(entry => new Date(entry.date + 'T00:00').toLocaleDateString());
+            const data = entries.map(entry => entry.count);
+            if (followerChart) {
+                followerChart.data.labels = labels;
+                followerChart.data.datasets[0].data = data;
+                followerChart.update();
+                return;
+            }
+            followerChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels,
+                    datasets: [
+                        {
+                            label: 'Followers',
+                            data,
+                            fill: true,
+                            tension: 0.35,
+                            borderColor: '#facc15',
+                            backgroundColor: 'rgba(250, 204, 21, 0.08)',
+                            pointBackgroundColor: '#fde68a',
+                            pointRadius: 4,
+                            pointHoverRadius: 6
                         }
-
-                        const result = await response.json();
-
-                        if (result.candidates && result.candidates.length > 0 &&
-                            result.candidates[0].content && result.candidates[0].content.parts &&
-                            result.candidates[0].content.parts.length > 0) {
-                            const text = result.candidates[0].content.parts[0].text;
-                            ideasOutput.classList.remove('flex', 'items-center', 'justify-center'); // Heq qendrimin
-                            ideasOutput.innerHTML = `<p class="text-gray-800 leading-relaxed">${text.replace(/\n/g, '<br>')}</p>`;
-                        } else {
-                            ideasOutput.innerHTML = '<p class="text-red-500">Non è stato possibile generare idee. Riprova più tardi.</p>';
+                    ]
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#e5e7eb'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: context => `${context.parsed.y.toLocaleString()} followers`
+                            }
                         }
-                    } catch (error) {
-                        console.error('Gabim gjatë gjenerimit të ideve:', error);
-                        ideasOutput.innerHTML = `<p class="text-red-500">Si è verificato un errore: ${error.message}. Per favore, riprova.</p>`;
-                    } finally {
-                        loadingIndicator.classList.add('hidden'); // Fsheh treguesin e ngarkesës
+                    },
+                    scales: {
+                        x: {
+                            ticks: {
+                                color: '#94a3b8'
+                            },
+                            grid: {
+                                color: 'rgba(148, 163, 184, 0.1)'
+                            }
+                        },
+                        y: {
+                            ticks: {
+                                color: '#94a3b8'
+                            },
+                            grid: {
+                                color: 'rgba(148, 163, 184, 0.08)'
+                            }
+                        }
                     }
-                });
+                }
+            });
+        }
+
+        function refreshUI(filter = '') {
+            updateSummaryCards();
+            updateGoalProgress();
+            updateTable(filter);
+            updateChart();
+        }
+
+        entryForm.addEventListener('submit', event => {
+            event.preventDefault();
+            const dateValue = entryDate.value;
+            const countValue = entryCount.value;
+            if (!dateValue || countValue === '') {
+                return;
+            }
+            upsertEntry({
+                date: dateValue,
+                count: Number(countValue),
+                notes: entryNotes.value
+            });
+            entryNotes.value = '';
+            entryCount.value = '';
+            setDefaultDate();
+        });
+
+        entriesBody.addEventListener('click', event => {
+            const button = event.target.closest('button[data-delete]');
+            if (!button) return;
+            const date = button.dataset.delete;
+            if (confirm('Remove this entry from your tracker?')) {
+                deleteEntry(date);
             }
         });
+
+        saveGoalBtn.addEventListener('click', saveGoal);
+
+        goalInput.addEventListener('keyup', event => {
+            if (event.key === 'Enter') {
+                saveGoal();
+            }
+        });
+
+        loadSampleBtn.addEventListener('click', () => {
+            const today = new Date();
+            const sample = [];
+            let base = Math.max(500, Math.floor(Math.random() * 1500));
+            for (let i = 7; i >= 0; i -= 1) {
+                const date = new Date(today);
+                date.setDate(today.getDate() - i);
+                base += Math.floor(Math.random() * 40) - 10;
+                sample.push({
+                    date: date.toISOString().slice(0, 10),
+                    count: Math.max(0, base),
+                    notes: i === 0 ? 'Auto-generated sample entry.' : ''
+                });
+            }
+            entries = sample;
+            saveEntries();
+            refreshUI(searchInput.value);
+        });
+
+        clearDataBtn.addEventListener('click', () => {
+            if (!entries.length) return;
+            if (confirm('This will remove all saved entries. Continue?')) {
+                entries = [];
+                saveEntries();
+                refreshUI(searchInput.value);
+            }
+        });
+
+        searchInput.addEventListener('input', event => {
+            refreshUI(event.target.value);
+        });
+
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+                entries = loadEntries();
+                refreshUI(searchInput.value);
+            }
+        });
+
+        window.addEventListener('storage', event => {
+            if (event.key === STORAGE_KEY) {
+                entries = loadEntries();
+                refreshUI(searchInput.value);
+            }
+            if (event.key === GOAL_KEY) {
+                goalInput.value = localStorage.getItem(GOAL_KEY) || '';
+                updateGoalProgress();
+            }
+        });
+
+        setDefaultDate();
+        loadGoal();
+        refreshUI();
     </script>
 </body>
 </html>
