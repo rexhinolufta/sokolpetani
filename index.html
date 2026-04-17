@@ -1,327 +1,94 @@
-<!DOCTYPE html>
-<html lang="it">
+<!doctype html>
+<html lang="sq">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Petani Piastrellista - Piastrellista e Ristrutturazioni</title>
-    <!-- Favicon -->
-    <link rel="icon" href="https://placehold.co/32x32/eab308/ffffff?text=P" type="image/png">
-    <!-- Inclusione di Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Inclusione e Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #333;
-            background-color: #f8f8f8;
-        }
-        .section-title {
-            position: relative;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-            display: inline-block;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 60px;
-            height: 3px;
-            background-color: #eab308; /* Colore giallo di Tailwind */
-            border-radius: 9999px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FusionBrain | Jarvis-Style Prototype</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="antialiased">
-    <!-- Header -->
-    <header class="bg-white shadow-sm py-4">
-        <nav class="container mx-auto flex justify-between items-center px-4">
-            <a href="#" class="text-2xl font-bold text-gray-800">
-                <span class="text-yellow-500">Petani</span>Piastrellista
-            </a>
-            <ul class="hidden md:flex space-x-6 lg:space-x-8 xl:space-x-10 text-sm"> <!-- Adjusted spacing and font size for better aesthetics -->
-                <li><a href="#home" class="text-gray-600 hover:text-yellow-500 transition duration-300">Home</a></li>
-                <li><a href="#chi-siamo" class="text-gray-600 hover:text-yellow-500 transition duration-300">Chi Siamo</a></li>
-                <li><a href="#servizi" class="text-gray-600 hover:text-yellow-500 transition duration-300">Servizi</a></li>
-                <li><a href="#portfolio" class="text-gray-600 hover:text-yellow-500 transition duration-300">Portfolio</a></li>
-                <li><a href="#contatti" class="text-gray-600 hover:text-yellow-500 transition duration-300">Contatti</a></li>
-                <li><a href="#preventivo" class="text-gray-600 hover:text-yellow-500 transition duration-300">Preventivo</a></li>
-            </ul>
-            <button class="md:hidden text-gray-600 focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </nav>
+<body class="bg-slate-950 text-slate-100 min-h-screen">
+  <main class="max-w-5xl mx-auto px-4 py-8">
+    <header class="mb-8">
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight">
+        <span class="text-cyan-400">Fusion</span>Brain
+      </h1>
+      <p class="text-slate-300 mt-2">Prototip cloud & free në stilin Jarvis (v0.1).</p>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="bg-gray-800 text-white py-20 md:py-32 text-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://placehold.co/1920x1080/4a5568/ffffff?text=Finiture+di+Qualita')"></div>
-        <div class="container mx-auto px-4 relative z-10">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
-                La Tua Casa, Il Nostro Capolavoro.
-            </h1>
-            <p class="text-lg md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
-                Piastrellista Professionista e Specialista in Ristrutturazioni Chiavi in Mano.
-            </p>
-            <!-- Rimosso: Richiedi un Preventivo Gratuito -->
-        </div>
+    <section class="grid md:grid-cols-3 gap-4 mb-6">
+      <article class="rounded-xl border border-slate-800 bg-slate-900 p-4">
+        <h2 class="font-semibold text-cyan-300 mb-2">👁️ Sy</h2>
+        <p class="text-sm text-slate-300">Vision module planifikuar për v0.2 (kamera + zbulim objektesh).</p>
+      </article>
+      <article class="rounded-xl border border-slate-800 bg-slate-900 p-4">
+        <h2 class="font-semibold text-cyan-300 mb-2">👂👄 Zëri</h2>
+        <p class="text-sm text-slate-300">STT + TTS pipeline. TTS aktualisht placeholder.</p>
+      </article>
+      <article class="rounded-xl border border-slate-800 bg-slate-900 p-4">
+        <h2 class="font-semibold text-cyan-300 mb-2">🖐️ Duar</h2>
+        <p class="text-sm text-slate-300">Tool-calling për motin dhe web kërkim.</p>
+      </article>
     </section>
 
-    <!-- Chi Siamo Section -->
-    <section id="chi-siamo" class="py-16 md:py-24 bg-gray-50">
-        <div class="container mx-auto px-4 text-center max-w-4xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 section-title mx-auto">Chi Siamo</h2>
-            <p class="text-gray-700 leading-relaxed text-lg mb-4">
-                Con anni di esperienza nel settore edile, offro servizi di alta qualità e precisione. La mia passione per el dettaglio e l'attenzione alle esigenze del cliente sono i pilastri del mio lavoro. Ogni progetto, grande o piccolo che sia, viene affrontato con professionalità e dedizione, garantendo risultati eccellenti e duraturi.
-            </p>
-            <p class="text-gray-700 leading-relaxed text-lg">
-                Sono specializzato nella posa di piastrelle di ogni tipo, dalla ceramica al gres porcellanato, fino ai materiali più pregiati. Offro anche soluzioni complete per ristrutturazioni chiavi in mano, lavori in cartongesso, controsoffitti e rifiniture interne, trasformando ogni ambiente in uno spazio funzionale e esteticamente gradevole.
-            </p>
-        </div>
+    <section class="rounded-2xl border border-cyan-900/60 bg-slate-900/70 p-4 shadow-2xl">
+      <div id="chat" class="h-80 overflow-y-auto space-y-3 p-2 rounded-lg bg-slate-950 border border-slate-800 mb-4"></div>
+      <form id="chatForm" class="flex gap-2">
+        <input id="message" class="flex-1 bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" placeholder="Shkruaj komanden... p.sh. Si eshte moti ne Tirane?" required />
+        <button class="bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-semibold px-4 py-2 rounded-lg">Dergo</button>
+      </form>
+      <p class="text-xs text-slate-400 mt-3">API default: <code>http://127.0.0.1:8000/chat</code></p>
     </section>
+  </main>
 
-    <!-- Servizi Offerti Section -->
-    <section id="servizi" class="py-16 md:py-24">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12 text-center section-title mx-auto">I Nostri Servizi</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Servizio 1: Posa Piastrelle -->
-                <div class="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
-                    <div class="text-yellow-500 mb-4">
-                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Posa Piastrelle</h3>
-                    <p class="text-gray-600 text-center">Specializzati nella posa di pavimenti e rivestimenti in ceramica, gres porcellanato, marmo e pietre naturali. Precisione e finitura impeccabile.</p>
-                </div>
-                <!-- Servizio 2: Ristrutturazioni Chiavi in Mano -->
-                <div class="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
-                    <div class="text-yellow-500 mb-4">
-                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m-1 4h1m8-16v2m0 8v2m0-8H13a2 2 0 00-2 2v4a2 2 0 002 2h5m0 0h3.586a1 1 0 00.707-.293l1.414-1.414a1 1 0 00.293-.707V10.414A1 1 0 0021.414 9l-1.414-1.414A1 1 0 0019 7.586V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Ristrutturazioni Chiavi in Mano</h3>
-                    <p class="text-gray-600 text-center">Gestione completa del progetto, dalla demolizione alla consegna finale. Coordinamento di tutte le fasi per un risultato senza pensieri.</p>
-                </div>
-                <!-- Servizio 3: Lavori in Cartongesso -->
-                <div class="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
-                    <div class="text-yellow-500 mb-4">
-                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Lavori in Cartongesso</h3>
-                    <p class="text-gray-600 text-center">Creazione di pareti divisorie, librerie, nicchie e strutture personalizzate per ottimizzare gli spazi con design e funzionalità.</p>
-                </div>
-                <!-- Servizio 4: Controsoffitti -->
-                <div class="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
-                    <div class="text-yellow-500 mb-4">
-                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Controsoffitti</h3>
-                    <p class="text-gray-600 text-center">Installazione di controsoffitti in cartongesso per isolamento termico/acustico, integrazione illuminazione e miglioramento estetico.</p>
-                </div>
-                <!-- Servizio 5: Rifiniture Interne -->
-                <div class="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
-                    <div class="text-yellow-500 mb-4">
-                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2V5a2 2 0 00-2-2h-2.5a1.5 1.5 0 01-1.5-1.5v-1A1.5 1.5 0 0012.5 2H10a1.5 1.5 0 00-1.5 1.5v1A1.5 1.5 0 017 5v12a4 4 0 004 4z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Rifiniture Interne</h3>
-                    <p class="text-gray-600 text-center">Dettagli che fanno la differenza: stuccature, rasature, imbiancatura, posa di battiscopa e altre finiture per interni eleganti.</p>
-                </div>
-                <!-- Servizio 6: Imbiancatura -->
-                <div class="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
-                    <div class="text-yellow-500 mb-4">
-                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 3H5a2 2 0 00-2 2v12a2 2 0 002 2h2m4 0h4m-4 0h-4m0 0V5a2 2 0 012-2h2a2 2 0 012 2v12m-4 0a2 2 0 002 2h2a2 2 0 002-2M7 13h4a2 2 0 012 2v4a2 2 0 01-2 2H7a2 2 0 01-2-2v-4a2 2 0 012-2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Imbiancatura</h3>
-                    <p class="text-gray-600 text-center">Servizi professionali di imbiancatura per interni ed esterni, con preparazione delle surfaces e scelta dei colori.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <script>
+    const chat = document.getElementById('chat');
+    const form = document.getElementById('chatForm');
+    const input = document.getElementById('message');
 
-    <!-- Portfolio Section (Immagini Lavori) -->
-    <section id="portfolio" class="py-16 md:py-24 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12 text-center section-title mx-auto">I Nostri Lavori</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="rounded-lg overflow-hidden shadow-md">
-                    <img src="https://i.postimg.cc/MGhj8kXC/banjo.png" alt="Ristrutturazione bagno completa" class="w-full h-auto object-cover transform hover:scale-105 transition duration-300">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-md">
-                    <img src="https://i.postimg.cc/XJdBj2Cp/banjo-pllaka.png" alt="Posa piastrelle bagno con dettagli" class="w-full h-auto object-cover transform hover:scale-105 transition duration-300">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-md">
-                    <img src="https://i.postimg.cc/brRGbsLP/parket.png" alt="Installazione parquet in soggiorno" class="w-full h-auto object-cover transform hover:scale-105 transition duration-300">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-md">
-                    <img src="https://i.postimg.cc/zDwH4cNQ/pllaka.png" alt="Posa piastrelle grande formato" class="w-full h-auto object-cover transform hover:scale-105 transition duration-300">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-md">
-                    <img src="https://i.postimg.cc/qqrhz8sQ/pllaka-banjo.png" alt="Dettagli piastrelle bagno" class="w-full h-auto object-cover transform hover:scale-105 transition duration-300">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-md">
-                    <img src="https://i.postimg.cc/vHQxytHZ/shkalle.png" alt="Ristrutturazione e posa piastrelle scale" class="w-full h-auto object-cover transform hover:scale-105 transition duration-300">
-                </div>
-            </div>
-        </div>
-    </section>
+    const addBubble = (role, text) => {
+      const row = document.createElement('div');
+      row.className = role === 'user' ? 'text-right' : 'text-left';
 
-    <!-- Contatti Section -->
-    <section id="contatti" class="py-16 md:py-24">
-        <div class="container mx-auto px-4 text-center max-w-2xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12 text-center section-title mx-auto">Contatti</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                <div class="bg-white rounded-lg shadow-md p-6 text-center">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Telefono</h3>
-                    <p class="text-gray-700 text-lg">
-                        <a href="tel:+393480459903" class="text-yellow-500 hover:underline">+39 348 045 9903</a>
-                    </p>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6 text-center">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Email</h3>
-                    <p class="text-gray-700 text-lg">
-                        <a href="mailto:sokolpetani@gmail.com" class="text-yellow-500 hover:underline">sokolpetani@gmail.com</a>
-                    </p>
-                </div>
-            </div>
-            <p class="text-gray-700 text-lg">
-                Non esitare a contattarmi per qualsiasi domanda o per discutere del tuo prossimo progetto.
-            </p>
-        </div>
-    </section>
+      const bubble = document.createElement('div');
+      bubble.className = role === 'user'
+        ? 'inline-block bg-cyan-500 text-slate-900 rounded-xl px-3 py-2 max-w-[80%]'
+        : 'inline-block bg-slate-800 text-slate-100 rounded-xl px-3 py-2 max-w-[80%]';
+      bubble.textContent = text;
+      row.appendChild(bubble);
 
-    <!-- Modulo Preventivo Section -->
-    <section id="preventivo" class="py-16 md:py-24 bg-gray-100">
-        <div class="container mx-auto px-4 max-w-2xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12 text-center section-title mx-auto">Richiedi un Preventivo</h2>
-            <form class="bg-white rounded-lg shadow-md p-8">
-                <div class="mb-6">
-                    <label for="nome" class="block text-gray-700 text-sm font-bold mb-2">Nome Completo:</label>
-                    <input type="text" id="nome" name="nome" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent" placeholder="Il tuo nome" required>
-                </div>
-                <div class="mb-6">
-                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
-                    <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent" placeholder="La tua email" required>
-                </div>
-                <div class="mb-6">
-                    <label for="telefono" class="block text-gray-700 text-sm font-bold mb-2">Telefono (opzionale):</label>
-                    <input type="tel" id="telefono" name="telefono" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent" placeholder="Il tuo numero di telefono">
-                </div>
-                <div class="mb-6">
-                    <label for="messaggio" class="block text-gray-700 text-sm font-bold mb-2">Messaggio e Dettagli del Progetto:</label>
-                    <textarea id="messaggio" name="messaggio" rows="6" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent" placeholder="Descrivi il progetto che hai in mente..." required></textarea>
-                </div>
-                <div class="flex items-center justify-center">
-                    <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:shadow-outline">
-                        Invia Richiesta
-                    </button>
-                </div>
-            </form>
-        </div>
-    </section>
+      chat.appendChild(row);
+      chat.scrollTop = chat.scrollHeight;
+    };
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2025 Petani Piastrellista. Tutti i diritti riservati.</p>
-            <div class="flex justify-center space-x-6 mt-4">
-                <!-- Facebook Icon and Link -->
-                <a href="https://www.facebook.com/petani.sokol" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-yellow-500 transition duration-300">
-                    <i class="fab fa-facebook-f fa-lg"></i> <!-- Facebook Icon -->
-                </a>
-                <!-- Instagram Icon and Link -->
-                <a href="https://www.instagram.com/petanipiastrellista?utm_source=ig_web_button_share_sheet&igsh=bjEwcGYybXJnamxt" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-yellow-500 transition duration-300">
-                    <i class="fab fa-instagram fa-lg"></i> <!-- Instagram Icon -->
-                </a>
-            </div>
-        </div>
-    </footer>
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const message = input.value.trim();
+      if (!message) return;
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Updated: Change the brand name in the header
-            const headerBrand = document.querySelector('header .text-2xl .text-yellow-500');
-            if (headerBrand) {
-                headerBrand.textContent = 'Petani';
-                const nextSibling = headerBrand.nextSibling;
-                if (nextSibling && nextSibling.nodeType === 3) { // Check if it's a text node
-                    nextSibling.textContent = 'Piastrellista';
-                }
-            }
+      addBubble('user', message);
+      input.value = '';
 
-            // --- Logic for Project Ideas AI (removed feature) ---
-            const generateIdeasBtn = document.getElementById('generate-ideas-btn');
-            const projectIdeaInput = document.getElementById('project-idea-input');
-            const ideasOutput = document.getElementById('ideas-output');
-            const loadingIndicator = document.getElementById('loading-indicator');
-
-            // Check if elements exist before adding event listener (as the section might be removed)
-            if (generateIdeasBtn && projectIdeaInput && ideasOutput && loadingIndicator) {
-                generateIdeasBtn.addEventListener('click', async () => {
-                    const prompt = projectIdeaInput.value.trim();
-                    if (!prompt) {
-                        ideasOutput.innerHTML = '<p class="text-red-500">Per favore, scrivi un\'idea per il progetto.</p>';
-                        return;
-                    }
-
-                    ideasOutput.innerHTML = ''; // Clear previous results
-                    loadingIndicator.classList.remove('hidden'); // Show loading indicator
-                    ideasOutput.classList.add('flex', 'items-center', 'justify-center'); // Center text during loading
-
-                    try {
-                        let chatHistory = [];
-                        const llmPrompt = `Ju jeni një ekspert i rinovimeve dhe dizajnit të brendshëm, i specializuar në pllaka, kartongesso, tavane të varura dhe rifinitura. Gjeneroni 3-5 ide krijuese dhe praktike për një projekt bazuar në përshkrimin e mëposhtëm të klientit, duke u përqëndruar në shërbimet e ofruara: "${prompt}". Çdo ide duhet të jetë e shkurtër dhe koncize, jo më shumë se 2-3 fjali. Përgjigju në italisht.`;
-                        chatHistory.push({ role: "user", parts: [{ text: llmPrompt }] });
-
-                        const payload = { contents: chatHistory };
-                        const apiKey = ""; // Canvas will provide this at runtime
-                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-                        const response = await fetch(apiUrl, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
-                        });
-
-                        if (!response.ok) {
-                            throw new Error(`Gabim HTTP! status: ${response.status}`);
-                        }
-
-                        const result = await response.json();
-
-                        if (result.candidates && result.candidates.length > 0 &&
-                            result.candidates[0].content && result.candidates[0].content.parts &&
-                            result.candidates[0].content.parts.length > 0) {
-                            const text = result.candidates[0].content.parts[0].text;
-                            ideasOutput.classList.remove('flex', 'items-center', 'justify-center'); // Heq qendrimin
-                            ideasOutput.innerHTML = `<p class="text-gray-800 leading-relaxed">${text.replace(/\n/g, '<br>')}</p>`;
-                        } else {
-                            ideasOutput.innerHTML = '<p class="text-red-500">Non è stato possibile generare idee. Riprova più tardi.</p>';
-                        }
-                    } catch (error) {
-                        console.error('Gabim gjatë gjenerimit të ideve:', error);
-                        ideasOutput.innerHTML = `<p class="text-red-500">Si è verificato un errore: ${error.message}. Per favore, riprova.</p>`;
-                    } finally {
-                        loadingIndicator.classList.add('hidden'); // Fsheh treguesin e ngarkesës
-                    }
-                });
-            }
+      try {
+        const res = await fetch('http://127.0.0.1:8000/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ user_id: 'fusion-user', message, use_memory: true })
         });
-    </script>
+
+        if (!res.ok) {
+          const err = await res.text();
+          addBubble('assistant', `Gabim API: ${err}`);
+          return;
+        }
+
+        const data = await res.json();
+        addBubble('assistant', data.reply || 'Nuk mora pergjigje.');
+      } catch (err) {
+        addBubble('assistant', 'Nuk u lidh me backend. Nise API me: uvicorn app.main:app --reload');
+      }
+    });
+
+    addBubble('assistant', 'Pershendetje! Une jam FusionBrain v0.1. Jep nje komande.');
+  </script>
 </body>
 </html>
